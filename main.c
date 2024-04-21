@@ -121,7 +121,7 @@ void asignar_prioridad(List *pacientes) {
   scanf("%s", paciente_encontrado->prioridad);
   getchar();
   printf("Prioridad %s asignada con exito!\n", paciente_encontrado->prioridad);
-
+  // hola
   list_sortedInsert(pacientes, paciente_encontrado, lower_than);
 }
 
