@@ -85,7 +85,7 @@ Alta
 "No hay pacientes en espera."
 ```
 
-- 5 "Mostrar pacientes por prioridad". Debe ingresar una prioridad (Alta/Media/Baja), y el programa mostrara los pacientes según la prioridad seleccionada
+- 5 "Mostrar pacientes por prioridad". Debe ingresar una prioridad (Alta/Media/Baja), y el programa mostrara los pacientes según la prioridad seleccionada.
 
 ```c
 "Ingrese la prioridad deseada"
@@ -94,6 +94,8 @@ Alta
 //Registro de pacientes con prioridad Alta....
 ```
 
+- 6 "Salir". Si se ingresa esta opción se procedera a salir del programa.
+  
 ## Problemas conocidos y cosas a mejorar
 
 Se debe ingresar los datos en el formato solicitado, si no, el programa podría fallar en algunas funciones, como en la función "Registrar paciente".
