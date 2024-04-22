@@ -17,11 +17,11 @@ gcc tdas/*.c main.c -Wno-unused-result -o tarea1
 ```
 ./tarea1
 ```
-## Funciones del programa
+## Funciones del programa (RESPETAR EL FORMATO EN EL QUE SE PIDEN LOS DATOS)
 
 El programa cuenta con un menú con 6 opciones, usted deberá ingresar un numero del 1 al 6 dependiendo de la función que desee utilizar.
 
-- 1 : "Registrar Paciente". Debe ingresar el nombre completo del paciente a registrar, luego su edad (solo numeros), el síntoma y la hora de ingreso (Para la hora deberá ingresar la hora y minutos de ingreso en ese orden, en el siguiente rango de números: Hora: 00-23, Minutos: 00-59). El programa asignara automáticamente el nivel de prioridad "Bajo" para el paciente registrado.
+- 1 : "Registrar Paciente". Debe ingresar el nombre completo del paciente a registrar, luego su edad (solo numeros), el síntoma y la hora de ingreso (Para la hora deberá ingresar la hora y minutos de ingreso en ese orden, en el siguiente rango de números: Hora: 00-23, Minutos: 00-59). El programa asignara automáticamente el nivel de prioridad "Bajo" para el paciente registrado, en lo posible tratar de no colocar un espacio al final de ingresar un nombre, sintoma o prioridad, ya que la información se guardara con ese espacio.
 
 ```c
 "Opción 1: Registrar Paciente"
@@ -51,7 +51,7 @@ Pedro Sanchez Gomez Antonio
 //Ingrese el nombre completo del paciente
 Javiera Martínez Pozo Andrea
 "Paciente Javiera Martínez Pozo Andrea encontrada con éxito!"
-//Ingrese la nueva prioridad (Alta/Media/Baja
+//Ingrese la nueva prioridad (Alta/Media/Baja)
 Alta
 "Prioridad Alta asignada con éxito!"
 ```
