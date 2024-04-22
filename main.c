@@ -12,6 +12,7 @@ typedef struct {
   char prioridad[500];
 } Paciente;
 
+// Función para comparar dos pacientes y determinar su orden en la lista
 int lower_than(void *p1, void *p2) {
     Paciente *paciente1 = (Paciente *)p1;
     Paciente *paciente2 = (Paciente *)p2;
@@ -82,6 +83,7 @@ void mostrarMenuPrincipal() {
   puts("6) Salir");
 }
 
+// Función para registrar un nuevo paciente
 void registrar_paciente(List *pacientes) {
   Paciente *pacienteRegistrado = malloc(sizeof(Paciente));
 
@@ -114,6 +116,7 @@ void registrar_paciente(List *pacientes) {
   list_pushBack(pacientes, pacienteRegistrado);
 }
 
+// Función para asignar una nueva prioridad a un paciente
 void asignar_prioridad(List *pacientes) {
   char nombre[500];
   printf("Ingrese el nombre completo del paciente: ");
@@ -144,6 +147,7 @@ void asignar_prioridad(List *pacientes) {
   list_sortedInsert(pacientes, paciente_encontrado, lower_than);
 }
 
+// Función para mostrar la lista de pacientes en espera
 void mostrar_lista_pacientes(List *pacientes) {
   printf("Pacientes en espera: \n\n");
   list_first(pacientes);
@@ -160,6 +164,7 @@ void mostrar_lista_pacientes(List *pacientes) {
   }
 }
 
+// Función para atender al siguiente paciente en la lista de espera
 void atender_siguiente_paciente(List *pacientes) {
   // Verificar si hay pacientes en espera
   if (list_first(pacientes) == NULL) {
@@ -167,7 +172,7 @@ void atender_siguiente_paciente(List *pacientes) {
     return;
   }
 
-  // Obtener el próximo paciente a ser atendido (el primero de la lista)
+  // Obtener el próximo paciente a ser atendido (el primero de la lista al estar ordenado)
   Paciente *paciente_siguiente = (Paciente *)list_popFront(pacientes);
 
   // Mostrar los datos del paciente atendido
@@ -182,6 +187,7 @@ void atender_siguiente_paciente(List *pacientes) {
   free(paciente_siguiente);
 }
 
+// Función para mostrar pacientes por prioridad
 void mostrar_pacientes_por_prioridad(List *pacientes) {
   char prioridad_deseada[500];
   printf("Ingrese la prioridad deseada (Alta/Media/Baja): \n");
