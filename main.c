@@ -154,7 +154,7 @@ void mostrar_lista_pacientes(List *pacientes) {
   Paciente *paciente_actual = (Paciente *)list_first(pacientes);
   while (paciente_actual != NULL) {
     printf("Nombre: %s\n", paciente_actual->nombre);
-    printf("Edad: %d\n", paciente_actual->edad);
+    printf("Edad: %d años\n", paciente_actual->edad);
     printf("Síntoma: %s\n", paciente_actual->sintoma);
     printf("Prioridad: %s\n", paciente_actual->prioridad);
     printf("Hora de ingreso: %d:%d\n", paciente_actual->horaIngreso,
@@ -178,7 +178,7 @@ void atender_siguiente_paciente(List *pacientes) {
   // Mostrar los datos del paciente atendido
   printf("Paciente atendido:\n");
   printf("Nombre: %s\n", paciente_siguiente->nombre);
-  printf("Edad: %d\n", paciente_siguiente->edad);
+  printf("Edad: %d años\n", paciente_siguiente->edad);
   printf("Síntoma: %s\n", paciente_siguiente->sintoma);
   printf("Prioridad: %s\n", paciente_siguiente->prioridad);
   printf("Hora de ingreso: %d:%d\n", paciente_siguiente->horaIngreso, paciente_siguiente->minutosIngreso);
@@ -198,7 +198,7 @@ void mostrar_pacientes_por_prioridad(List *pacientes) {
   while (paciente_actual != NULL) {
     if (strcmp(paciente_actual->prioridad, prioridad_deseada) == 0) {
       printf("Nombre: %s\n", paciente_actual->nombre);
-      printf("Edad: %d\n", paciente_actual->edad);
+      printf("Edad: %d años\n", paciente_actual->edad);
       printf("Síntoma: %s\n", paciente_actual->sintoma);
       printf("Prioridad: %s\n", paciente_actual->prioridad);
       printf("Hora de ingreso: %d:%d\n", paciente_actual->horaIngreso, paciente_actual->minutosIngreso);
