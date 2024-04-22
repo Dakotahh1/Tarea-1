@@ -40,7 +40,7 @@ Hemorragia nasal
 
 ```
 
-- 2 : "Asignar Prioridad". Debe ingresar el nombre completo del paciente a buscar, si el nombre coincide con el registro, le mostrara el nombre del paciente, sino, le dirá que el nombre del paciente ingresado no se encontró y tendrá que volver a ingresar el nombre que se encuentre dentro del registro, luego le solicitara ingresar el nivel de prioridad para el paciente (Alto/Medio/Bajo), una vez ingresado, se le asignara esa prioridad al paciente ingresado.
+- 2 : "Asignar Prioridad". Debe ingresar el nombre completo del paciente a buscar, si el nombre coincide con el registro, le mostrara el nombre del paciente, sino, le dirá que el nombre del paciente ingresado no se encontró y tendrá que volver a ingresar el nombre que se encuentre dentro del registro, luego le solicitara ingresar el nivel de prioridad para el paciente (Alto/Medio/Bajo), una vez ingresado, se le asignara esa prioridad al paciente ingresado (ingresar prioridad con la mayuscula al inicio y despues en minusculas, sin puntos ni espacios al final, como se muestra en el ejemplo).
 
 ```c
 "Opción 2: Asignar Prioridad"
