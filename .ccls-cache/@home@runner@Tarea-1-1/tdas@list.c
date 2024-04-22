@@ -102,14 +102,14 @@ void list_sortedInsert(List *L, void *data,
   }
 
   // Caso especial: inserción al principio o en lista vacía
-  if (L->head == NULL || lower_than(data, L->head->data)) {
+  if (L->head == NULL || lower_than(data, L->head->data) < 0) {
     list_pushFront(L, data);
     return;
   }
 
   // Caso general: encontrar la posición correcta para insertar
   Node *current = L->head;
-  while (current->next != NULL && !lower_than(data, current->next->data)) {
+  while (current->next != NULL && lower_than(data, current->next->data) >= 0) {
     current = current->next;
   }
 

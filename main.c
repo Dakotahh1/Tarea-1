@@ -13,31 +13,51 @@ typedef struct {
 } Paciente;
 
 int lower_than(void *p1, void *p2) {
-  Paciente *paciente1 = (Paciente *)p1;
-  Paciente *paciente2 = (Paciente *)p2;
+    Paciente *paciente1 = (Paciente *)p1;
+    Paciente *paciente2 = (Paciente *)p2;
 
-  // Comparación por prioridad
-  if (strcmp(paciente1->prioridad, paciente2->prioridad) < 0) {
-    return -1;
-  } else if (strcmp(paciente1->prioridad, paciente2->prioridad) > 0) {
-    return 1;
-  } else { // Si la prioridad es la misma, comparar por hora de registro
-    if (paciente1->horaIngreso < paciente2->horaIngreso) {
-      return -1;
-    } else if (paciente1->horaIngreso > paciente2->horaIngreso) {
-      return 1;
+    // Asignar valores numéricos a las prioridades
+    int prioridad1, prioridad2;
+    if (strcmp(paciente1->prioridad, "Alta") == 0) {
+        prioridad1 = 2;
+    } else if (strcmp(paciente1->prioridad, "Media") == 0) {
+        prioridad1 = 1;
     } else {
-      // Si la hora de registro es la misma, comparar por minutos de registro
-      if (paciente1->minutosIngreso < paciente2->minutosIngreso) {
-        return -1;
-      } else if (paciente1->minutosIngreso > paciente2->minutosIngreso) {
-        return 1;
-      } else {
-        return 0; // Los pacientes son iguales
-      }
+        prioridad1 = 0;
     }
-  }
+
+    if (strcmp(paciente2->prioridad, "Alta") == 0) {
+        prioridad2 = 2;
+    } else if (strcmp(paciente2->prioridad, "Media") == 0) {
+        prioridad2 = 1;
+    } else {
+        prioridad2 = 0;
+    }
+
+    // Comparar las prioridades numéricamente
+    if (prioridad1 > prioridad2) {
+        return -1;
+    } else if (prioridad1 < prioridad2) {
+        return 1;
+    } else {
+        // Si las prioridades son iguales, comparar por hora de ingreso
+        if (paciente1->horaIngreso < paciente2->horaIngreso) {
+            return -1;
+        } else if (paciente1->horaIngreso > paciente2->horaIngreso) {
+            return 1;
+        } else {
+            // Si la hora de ingreso es la misma, comparar por minutos de ingreso
+            if (paciente1->minutosIngreso < paciente2->minutosIngreso) {
+                return -1;
+            } else if (paciente1->minutosIngreso > paciente2->minutosIngreso) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }
 }
+
 // Función para limpiar la pantalla
 void limpiarPantalla() { system("clear"); }
 
@@ -121,12 +141,11 @@ void asignar_prioridad(List *pacientes) {
   scanf("%s", paciente_encontrado->prioridad);
   getchar();
   printf("Prioridad %s asignada con exito!\n", paciente_encontrado->prioridad);
-  // hola
   list_sortedInsert(pacientes, paciente_encontrado, lower_than);
 }
 
 void mostrar_lista_pacientes(List *pacientes) {
-  printf("Pacientes en espera: \n");
+  printf("Pacientes en espera: \n\n");
   list_first(pacientes);
   Paciente *paciente_actual = (Paciente *)list_first(pacientes);
   while (paciente_actual != NULL) {
@@ -143,7 +162,7 @@ void mostrar_lista_pacientes(List *pacientes) {
 
 void atender_siguiente_paciente(List *pacientes) {
   // Verificar si hay pacientes en espera
-  if (pacientes == NULL) {
+  if (list_first(pacientes) == NULL) {
     printf("No hay pacientes en espera.\n");
     return;
   }
